@@ -28,9 +28,9 @@ const Projects = () => {
           >
             {/* Image Section */}
             <section className="p-1 lg:w-1/2 shrink-0 flex items-center">
-              <div className="relative w-full aspect-[16/10] rounded-lg shadow-lg overflow-hidden">
+              <div className="relative w-full aspect-[16/10] rounded-lg shadow-lg overflow-hidden bg-gray-100">
                 <Image
-                  className="object-cover"
+                  className="object-contain"
                   src={`/projects/${e.image}`}
                   alt={`${e.title} by Alfred Imoh`}
                   priority={false}

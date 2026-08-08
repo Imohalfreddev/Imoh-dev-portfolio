@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import ScrollReveal from "./ScrollReveal";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -63,7 +64,8 @@ const Contact = () => {
 
       {/* Contact Section */}
       <section className="flex justify-center items-center gap-12">
-        <section className="p-1 lg:w-1/3 max-w-fit flex items-center max-lg:hidden">
+        <ScrollReveal direction="left" className="lg:w-1/3 max-lg:hidden">
+        <section className="p-1 max-w-fit flex items-center">
           <Image
             className=""
             src="/contact/email.svg"
@@ -77,7 +79,9 @@ const Contact = () => {
             }}
           />
         </section>
-        <section className="lg:w-2/4 md:w-3/4 sm:w-3/4 w-full p-6 rounded-xl card flex flex-col justify-center items-center max-sm:m-4 max-md:mt-8">
+        </ScrollReveal>
+        <ScrollReveal direction="right" className="lg:w-2/4 md:w-3/4 sm:w-3/4 w-full max-sm:m-4 max-md:mt-8">
+        <section className="w-full p-6 rounded-xl card flex flex-col justify-center items-center">
           <form className="w-full p-1 lg:p-6" onSubmit={handleSubmit}>
             <div className="mb-5">
               <label
@@ -144,6 +148,7 @@ const Contact = () => {
             </button>
           </form>
         </section>
+        </ScrollReveal>
       </section>
     </main>
   );

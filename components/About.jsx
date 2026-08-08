@@ -1,3 +1,4 @@
+"use client";
 import { FaInstagram, FaReact, FaFacebook, FaDocker, FaGitAlt } from "react-icons/fa";
 import { RiJavascriptFill, RiLinkedinFill, RiTailwindCssFill } from "react-icons/ri";
 import { FaNodeJs } from "react-icons/fa";
@@ -6,6 +7,9 @@ import { PiGithubLogoFill } from "react-icons/pi";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import Link from "next/link";
+import Image from "next/image";
+import ScrollReveal from "./ScrollReveal";
+import HeroParallax from "./HeroParallax";
 
 import React from "react";
 
@@ -37,9 +41,10 @@ const About = React.memo(function About() {
         <p className="text-xl lg:text-2xl font-bold border-l-4 border-blue-600 pl-3">About Me</p>
       </section>
 
-      <section className="flex flex-col-reverse lg:flex-row lg:p-6 p-4 gap-6 mt-6">
+      <section className="flex flex-col-reverse lg:flex-row lg:p-6 p-4 gap-6 mt-6 items-stretch">
         {/* left Section */}
-        <section className="w-full p-2 rounded-xl py-6 lg:py-0.5 shadow-sm flex  flex-col max-md:gap-6 card lg:p-4">
+        <ScrollReveal direction="left" className="w-full flex">
+        <section className="w-full h-full p-2 rounded-xl py-6 lg:py-0.5 shadow-md border border-gray-100 bg-white flex  flex-col justify-start max-md:gap-6 lg:p-4">
           <section className="flex items-center gap-4 h-1/5 ">
             <p className="text-xl lg:text-2xl font-bold border-l-4 border-blue-600 pl-3">My Skills</p>
           </section>
@@ -60,23 +65,16 @@ const About = React.memo(function About() {
             ))}
           </section>
         </section>
+        </ScrollReveal>
 
         {/* Right Section */}
-        <section className="w-full p-3 flex flex-col justify-start gap-4 text-xl rounded-xl py-6 lg:p-6 card bg-white shadow-md border border-gray-100">
+        <ScrollReveal direction="right" className="w-full flex">
+        <section className="w-full h-full p-3 flex flex-col justify-start gap-4 text-xl rounded-xl py-6 lg:p-6 card bg-white shadow-md border border-gray-100">
           <section className="flex items-center gap-4 ">
             <p className="font-bold text-xl lg:text-2xl border-l-4 border-blue-600 pl-3">More about Me</p>
           </section>
           <p className="lg:text-xl text-lg text-gray-700 font-normal">
-            I&apos;m a self-taught full-stack software engineer with 2+ years of hands-on experience building modern, end-to-end web applications. I started from zero, learning by building real products, and that foundation has made me a developer who understands every layer of the stack.
-          </p>
-          <p className="lg:text-xl text-lg text-gray-700 font-normal">
-            I work across the full stack, React, Node.js, Express.js, FastAPI, PostgreSQL, and MongoDB, and use Tailwind CSS to create responsive, polished interfaces that users actually enjoy.
-          </p>
-          <p className="lg:text-xl text-lg text-gray-700 font-normal">
-            Over the past 2+ years I&apos;ve shipped products across SaaS, automotive eCommerce, and lead generation, owning everything from API design and database modelling to containerization with Docker and deployment on Vercel and Render.
-          </p>
-          <p className="lg:text-xl text-lg text-gray-700 font-normal">
-            I&apos;m a fast learner who adapts quickly to any language or stack a project requires. Currently open to new opportunities, let&apos;s build something great together.
+            Self-taught full-stack engineer with 2+ years shipping SaaS, eCommerce, and lead-gen products end to end, React, Node.js, FastAPI, PostgreSQL, and Docker, deployed on Vercel and Render. Fast learner, open to new opportunities.
           </p>
           <section className="flex max-md:flex-col gap-6 md:items-center">
             {/* Social Media Icons */}
@@ -111,6 +109,7 @@ const About = React.memo(function About() {
             </section>
           </section>
         </section>
+        </ScrollReveal>
       </section>
     </main>
   );

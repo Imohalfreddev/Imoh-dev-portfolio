@@ -3,6 +3,7 @@ import { PiGithubLogoFill } from "react-icons/pi";
 import { CgWebsite } from "react-icons/cg";
 import { FaLink, FaExternalLinkAlt, FaLock } from "react-icons/fa";
 import { project_data } from "../project_data";
+import ScrollReveal from "./ScrollReveal";
 
 const Projects = () => {
   return (
@@ -17,46 +18,48 @@ const Projects = () => {
       {/* Projects Section */}
       <section className=" flex justify-center items-center flex-col p-2 max-lg:gap-2">
         {project_data.map((e, index) => (
-          <section
-            className="card shadow-lg rounded-xl flex lg:flex-row flex-col  gap-4 md:p-4 md:m-4 p-2 m-2 max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-fit xl:w-5/6"
+          <ScrollReveal
             key={index}
+            direction={index % 2 === 0 ? "left" : "right"}
+            className="w-full flex justify-center"
+          >
+          <section
+            className="card shadow-lg rounded-xl flex lg:flex-row flex-col gap-4 md:p-4 md:m-4 p-2 m-2 w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-none lg:w-5/6 xl:w-5/6"
           >
             {/* Image Section */}
-            <section className="p-1 lg:w-1/2 max-w-fit flex items-center">
-              <Image
-                className=" rounded-lg shadow-lg"
-                src={`/projects/${e.image}`}
-                alt={`${e.title} by Alfred Imoh`}
-                priority={false}
-                height={300}
-                width={600}
-                style={{
-                  width: "600px",
-                  height: "auto",
-                }}
-              />
+            <section className="p-1 lg:w-1/2 shrink-0 flex items-center">
+              <div className="relative w-full aspect-[16/10] rounded-lg shadow-lg overflow-hidden">
+                <Image
+                  className="object-cover"
+                  src={`/projects/${e.image}`}
+                  alt={`${e.title} by Alfred Imoh`}
+                  priority={false}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, (min-width: 768px) 60vw, 90vw"
+                />
+              </div>
             </section>
 
             {/* Detail Section */}
-            <section className="p-1 lg:p-2 gap-1 flex flex-col lg:w-2/3 max-w-fit">
-              <h3 className="text-xl lg:text-2xl font-semibold">{e.title}</h3>
+            <section className="p-1 lg:p-2 gap-1 flex flex-col lg:w-2/3 min-w-0 lg:h-full">
+              <h3 className="text-xl lg:text-2xl font-semibold line-clamp-2 min-h-[2rem] lg:min-h-[3.5rem]">{e.title}</h3>
               {/* Badges */}
-              <section className="p-2 flex max-w-fit flex-wrap gap-2">
+              <section className="p-2 flex max-w-fit flex-wrap gap-2 h-[4.25rem] overflow-hidden content-start">
                 {e.badges.map((badge, index) => (
                   <span
                     key={index}
-                    className="bg-green-100 text-green-800 text-xs lg:text-sm font-medium me-2 px-2.5 py-0.5 rounded min-w-fit"
+                    className="bg-blue-100 text-blue-800 text-xs lg:text-sm font-medium me-2 px-2.5 py-0.5 rounded min-w-fit h-fit"
                   >
                     {badge}
                   </span>
                 ))}
               </section>
               {/* Project Description */}
-              <p className=" lg:text-lg text-gray-700 lg:p-2">
+              <p className="lg:text-lg text-gray-700 lg:p-2 line-clamp-3 flex-1">
                 {e.description}
               </p>
               {/* Project Buttons */}
-              <section className="lg:p-2 flex justify-end gap-4 max-lg:p-3">
+              <section className="lg:p-2 flex justify-end gap-4 max-lg:p-3 mt-auto">
                 {/* Github - only show if link exists */}
                 {e.github ? (
                   <a
@@ -104,6 +107,7 @@ const Projects = () => {
               </section>
             </section>
           </section>
+          </ScrollReveal>
         ))}
       </section>
     </main>

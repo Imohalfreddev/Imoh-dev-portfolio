@@ -7,6 +7,7 @@ import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { IoDocumentText } from "react-icons/io5";
 import Link from "next/link";
+import HeroParallax from "./HeroParallax";
 
 const Hero = () => {
   const handleDownloadResume = () => {
@@ -109,19 +110,32 @@ const Hero = () => {
         </section>
       </section>
 
-      {/* Right Section */}
-      <section className=" lg:max-w-lg p-4 max-lg:hidden">
-        <Image
-          className="max-w-xl rounded-xl"
-          src="/hero/bg.svg"
-          alt="Alfred Imoh"
-          height={300}
-          width={350}
-          style={{
-            width: "350px",
-            height: "auto",
-          }}
-        />
+      {/* Right Section: hero illustration, visible at all breakpoints */}
+      <section className="lg:max-w-lg max-w-xs w-full p-4 mx-auto lg:mx-0">
+        <HeroParallax>
+          {/* Desktop */}
+          <Image
+            className="max-w-xl rounded-xl max-lg:hidden"
+            src="/hero/bg.svg"
+            alt="Alfred Imoh"
+            height={300}
+            width={350}
+            priority
+            style={{
+              width: "350px",
+              height: "auto",
+            }}
+          />
+          {/* Mobile / Tablet */}
+          <Image
+            className="w-full h-auto rounded-xl lg:hidden"
+            src="/hero/bg.png"
+            alt="Alfred Imoh coding at desk"
+            height={300}
+            width={300}
+            priority
+          />
+        </HeroParallax>
       </section>
       {/* Floating WhatsApp Button */}
       <a

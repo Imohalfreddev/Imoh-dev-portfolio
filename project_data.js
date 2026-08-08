@@ -1,28 +1,38 @@
 export const project_data = [
     {
-        title: "ImohMarket | Elite Automotive Exchange",
-        image: "online-auction-system.png",
+        title: "Scooproomhq: Premium News Aggregation Platform",
+        image: "scoop-room.png",
         description:
-            "A production-ready, full-stack automotive marketplace engineered for the luxury vehicle industry. Elite sellers can showcase inventory and serious buyers can browse a curated showroom with real-time data persistence. Features secure role-switching between Buyer and Seller profiles, JWT authentication with bcrypt password hashing, and a premium dark mode UI. Backend powered by FastAPI and PostgreSQL via Supabase, frontend hosted on Vercel.",
-        badges: ["FastAPI", "PostgreSQL", "JavaScript", "HTML5", "CSS3", "Vercel", "Render"],
-        github: "https://github.com/Imohalfreddev/ImohMarket",
-        live: "https://imoh-market.vercel.app/",
+            "A fast, SEO-friendly newsroom platform with a 3D hero, breaking news ticker, category showcases, instant search, and a full admin CMS, architected to plug into any news aggregator backend via a single REST/service layer with no rebuild required. Built with Next.js 15, React 19, TypeScript, Tailwind CSS v4, Framer Motion, and Three.js / React Three Fiber, with a Prisma + PostgreSQL data model ready to go live.",
+        badges: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS v4", "Three.js", "Prisma", "PostgreSQL"],
+        github: "https://github.com/Imohalfreddev/scoop-room",
+        live: "https://scooproomhq.com",
     },
     {
-        title: "WorkFlow — Employee Management SaaS",
-        image: "java.png",
+        title: "Scooproomhq Admin: Newsroom CMS",
+        image: "scoop-room-admin.png",
         description:
-            "A fully functional multi-tenant employee management system. Companies are isolated by company_id, with role-based access for Admin and Employee. Features include JWT authentication, broadcast messaging, leave request management with approval flow, real-time notifications, and a stats dashboard. Built with React, FastAPI, PostgreSQL, and Docker.",
-        badges: ["FastAPI", "React", "PostgreSQL", "Docker", "JWT"],
-        github: "https://github.com/Imohalfreddev/emp-mgmt",
-        // 👇 This link has been updated to your working Vercel deployment
-        live: "https://emp-mgmt-kj5w.vercel.app/", 
+            "The private, authenticated control room behind Scooproomhq, a fully separate codebase and deployment with the only write access to the shared database. Handles article creation/editing, categories, media, homepage/hero ordering, notifications, and SEO, protected end to end by session middleware. Kept off the public site and off any public repo by design.",
+        badges: ["Next.js", "Prisma", "PostgreSQL", "JWT Auth", "Admin CMS"],
+        github: null,
+        live: null,
+        isPrivate: true,
     },
     {
-        title: "ClientRadar — Real-Time Lead Detection",
+        title: "Scooproomhq Bot: Breaking News Intelligence Engine",
+        image: "scoop-room-bot.png",
+        description:
+            "A newsroom-intelligence backend that scans trusted Nigerian, African, and global RSS sources around the clock, clusters duplicate coverage of the same story, scores it for confidence, and alerts a Telegram channel only once it's genuinely worth posting, turning six outlets covering one event into a single, ranked alert instead of six pings.",
+        badges: ["Node.js", "TypeScript", "Prisma", "PostgreSQL", "Telegram Bot API"],
+        github: null,
+        live: null,
+        isPrivate: true,
+    },
+    {
+        title: "ClientRadar: Real-Time Lead Detection",
         image: "url-shortener.png",
         description:
-            "A Node.js/Express backend that scrapes 6 free job boards every 30 minutes and surfaces software engineer postings through a clean REST API. Sources include Remote OK, Remotive, Himalayas, We Work Remotely, Jobicy, and Hacker News — all free, no API key required. Features full-text search, tag and source filtering, pagination, admin scrape triggers, and a scheduler with cron-based polling.",
+            "A Node.js/Express backend that scrapes 6 free job boards every 30 minutes and surfaces software engineer postings through a clean REST API. Sources include Remote OK, Remotive, Himalayas, We Work Remotely, Jobicy, and Hacker News, all free, no API key required. Features full-text search, tag and source filtering, pagination, admin scrape triggers, and a scheduler with cron-based polling.",
         badges: ["React", "Node.js", "Express.js", "PostgreSQL", "Docker"],
         github: null,
         live: null,

@@ -6,9 +6,11 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   compress: true,
-  swcMinify: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  experimental: {
+    optimizePackageImports: ['react-icons', 'framer-motion'],
+  },
 };
 
 export default nextConfig;

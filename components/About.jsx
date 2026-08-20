@@ -1,5 +1,5 @@
 "use client";
-import { FaInstagram, FaReact, FaFacebook, FaDocker, FaGitAlt } from "react-icons/fa";
+import { FaInstagram, FaReact, FaFacebook, FaGitAlt } from "react-icons/fa";
 import { RiJavascriptFill, RiLinkedinFill, RiTailwindCssFill } from "react-icons/ri";
 import { FaNodeJs } from "react-icons/fa";
 import { SiExpress, SiFastapi, SiPostgresql, SiPython, SiNextdotjs, SiHtml5, SiShopify, SiWix, SiWordpress } from "react-icons/si";
@@ -11,6 +11,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import HeroParallax from "./HeroParallax";
+import TypewriterOnScroll from "./TypewriterOnScroll";
 
 import React from "react";
 
@@ -20,19 +21,18 @@ const frontendSkills = [
   { icon: <SiNextdotjs size={50} className="text-black" />, label: "Next JS" },
   { icon: <SiHtml5 size={50} className="text-orange-500" />, label: "HTML5" },
   { icon: <RiTailwindCssFill size={50} className="text-cyan-400" />, label: "Tailwind CSS" },
-  { icon: <SiPython size={50} className="text-blue-500" />, label: "Python" },
-  { icon: <SiFastapi size={50} className="text-green-500" />, label: "FastAPI" },
 ];
 
 const backendSkills = [
   { icon: <FaNodeJs size={45} className="text-green-500" />, label: "Node Js" },
   { icon: <SiExpress size={45} className="text-black" />, label: "Express JS" },
+  { icon: <SiPython size={45} className="text-blue-500" />, label: "Python" },
+  { icon: <SiFastapi size={45} className="text-green-500" />, label: "FastAPI" },
   { icon: <SiPostgresql size={45} className="text-blue-700" />, label: "PostgreSQL" },
-  { icon: <FaDocker size={45} className="text-blue-500" />, label: "Docker" },
-  { icon: <FaGitAlt size={45} className="text-orange-600" />, label: "Git" },
 ];
 
 const platformSkills = [
+  { icon: <FaGitAlt size={45} className="text-orange-600" />, label: "Git" },
   { icon: <SiWordpress size={45} className="text-blue-600" />, label: "WordPress" },
   { icon: <SiShopify size={45} className="text-green-600" />, label: "Shopify" },
   { icon: <SiWix size={45} className="text-black" />, label: "Wix" },
@@ -46,7 +46,7 @@ const About = React.memo(function About() {
       id="about"
     >
       <section className="flex items-center gap-4 pt-3">
-        <p className="text-xl lg:text-2xl font-bold border-l-4 border-blue-600 pl-3">About Me</p>
+        <TypewriterOnScroll text="About Me" as="p" className="text-xl lg:text-2xl font-bold border-l-4 border-blue-600 pl-3" />
       </section>
 
       <section className="flex flex-col-reverse lg:flex-row lg:p-6 p-4 gap-6 mt-6 items-stretch">
@@ -54,31 +54,43 @@ const About = React.memo(function About() {
         <ScrollReveal direction="left" className="w-full flex">
         <section className="w-full h-full p-2 rounded-xl py-6 lg:py-0.5 shadow-md border border-gray-100 bg-white flex  flex-col justify-start max-md:gap-6 lg:p-4">
           <section className="flex items-center gap-4 h-1/5 ">
-            <p className="text-xl lg:text-2xl font-bold border-l-4 border-blue-600 pl-3">My Skills</p>
+            <TypewriterOnScroll text="My Skills" as="p" className="text-xl lg:text-2xl font-bold border-l-4 border-blue-600 pl-3" />
           </section>
-          <section className="p-2 flex gap-6 justify-center flex-wrap text-lg">
-            {frontendSkills.map((skill, idx) => (
-              <div key={skill.label} className="flex justify-center items-center flex-col">
-                {skill.icon}
-                {skill.label}
-              </div>
-            ))}
+          <section className="p-2 flex flex-col gap-2">
+            <section className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 justify-items-center">
+              {frontendSkills.map((skill, idx) => (
+                <div key={skill.label} className="group flex justify-center items-center flex-col">
+                  {skill.icon}
+                  <span className="text-lg mt-1 transition-all duration-300 ease-out group-hover:text-blue-600 group-hover:-translate-y-0.5 group-hover:tracking-wide">
+                    {skill.label}
+                  </span>
+                </div>
+              ))}
+            </section>
           </section>
-          <section className="p-2 flex gap-6 justify-center flex-wrap text-lg">
-            {backendSkills.map((skill, idx) => (
-              <div key={skill.label} className="flex justify-center items-center flex-col">
-                {skill.icon}
-                {skill.label}
-              </div>
-            ))}
+          <section className="p-2 flex flex-col gap-2">
+            <section className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 justify-items-center">
+              {backendSkills.map((skill, idx) => (
+                <div key={skill.label} className="group flex justify-center items-center flex-col">
+                  {skill.icon}
+                  <span className="text-lg mt-1 transition-all duration-300 ease-out group-hover:text-blue-600 group-hover:-translate-y-0.5 group-hover:tracking-wide">
+                    {skill.label}
+                  </span>
+                </div>
+              ))}
+            </section>
           </section>
-          <section className="p-2 flex gap-6 justify-center flex-wrap text-lg">
-            {platformSkills.map((skill, idx) => (
-              <div key={skill.label} className="flex justify-center items-center flex-col">
-                {skill.icon}
-                {skill.label}
-              </div>
-            ))}
+          <section className="p-2 flex flex-col gap-2">
+            <section className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 justify-items-center">
+              {platformSkills.map((skill, idx) => (
+                <div key={skill.label} className="group flex justify-center items-center flex-col">
+                  {skill.icon}
+                  <span className="text-lg mt-1 transition-all duration-300 ease-out group-hover:text-blue-600 group-hover:-translate-y-0.5 group-hover:tracking-wide">
+                    {skill.label}
+                  </span>
+                </div>
+              ))}
+            </section>
           </section>
         </section>
         </ScrollReveal>
@@ -87,7 +99,7 @@ const About = React.memo(function About() {
         <ScrollReveal direction="right" className="w-full flex">
         <section className="w-full h-full p-3 flex flex-col justify-start gap-4 text-xl rounded-xl py-6 lg:p-6 card bg-white shadow-md border border-gray-100">
           <section className="flex items-center gap-4 ">
-            <p className="font-bold text-xl lg:text-2xl border-l-4 border-blue-600 pl-3">More about Me</p>
+            <TypewriterOnScroll text="Profile" as="p" className="font-bold text-xl lg:text-2xl border-l-4 border-blue-600 pl-3" />
           </section>
           <p className="lg:text-xl text-lg text-gray-700 font-normal">
             Full-stack software engineer with 3+ years of experience shipping SaaS platforms, eCommerce sites, and lead-generation products end to end. Proficient in React, Node.js, FastAPI, and PostgreSQL, with production deployments on Vercel, Render, and self-managed infrastructure. Also builds and customizes WordPress, Shopify, and Wix sites for clients who need a fast, no-code-friendly launch.

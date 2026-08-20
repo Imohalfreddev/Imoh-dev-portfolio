@@ -4,6 +4,7 @@ import { CgWebsite } from "react-icons/cg";
 import { FaLink, FaExternalLinkAlt, FaLock } from "react-icons/fa";
 import { project_data } from "../project_data";
 import ScrollReveal from "./ScrollReveal";
+import TypewriterOnScroll from "./TypewriterOnScroll";
 
 const Projects = () => {
   return (
@@ -12,7 +13,7 @@ const Projects = () => {
       id="projects"
     >
       <section className="flex items-center gap-4 pt-2">
-        <p className="text-2xl font-bold border-l-4 border-blue-600 pl-3">My Projects</p>
+        <TypewriterOnScroll text="Recent Projects" as="p" className="text-2xl font-bold border-l-4 border-blue-600 pl-3" />
       </section>
 
       {/* Projects Section */}
@@ -42,7 +43,12 @@ const Projects = () => {
 
             {/* Detail Section */}
             <section className="p-1 lg:p-2 gap-1 flex flex-col lg:w-2/3 min-w-0 lg:h-full">
-              <h3 className="text-xl lg:text-2xl font-semibold line-clamp-2 min-h-[2rem] lg:min-h-[3.5rem]">{e.title}</h3>
+              <TypewriterOnScroll
+                text={e.title}
+                as="h3"
+                className="text-xl lg:text-2xl font-semibold line-clamp-2 min-h-[2rem] lg:min-h-[3.5rem]"
+                threshold={0.2}
+              />
               {/* Badges */}
               <section className="p-2 flex max-w-fit flex-wrap gap-2 h-[4.25rem] overflow-hidden content-start">
                 {e.badges.map((badge, index) => (

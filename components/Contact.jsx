@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import ScrollReveal from "./ScrollReveal";
+import TypewriterOnScroll from "./TypewriterOnScroll";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -59,7 +60,7 @@ const Contact = () => {
     >
       <Toaster />
       <section className="flex items-center gap-4 pt-2">
-        <p className="text-2xl font-bold border-l-4 border-blue-600 pl-3">Contact Me</p>
+        <TypewriterOnScroll text="Contact Me" as="p" className="text-2xl font-bold border-l-4 border-blue-600 pl-3" />
       </section>
 
       {/* Contact Section */}

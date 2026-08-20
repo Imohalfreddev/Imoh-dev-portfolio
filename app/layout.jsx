@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Alfred Imoh: Full Stack Developer | React, Next.js & Node.js",
   description:
-    "Alfred Imoh is a full-stack software engineer who builds modern, end-to-end web applications with a focus on clean code and real-world impact. He works across React, Node.js, FastAPI, PostgreSQL, and Docker.",
+    "Alfred Imoh is a full-stack software engineer who builds modern, end-to-end web applications with a focus on clean code and real-world impact. He works across React, Node.js, FastAPI, and PostgreSQL.",
   keywords: [
     "Alfred Imoh",
     "Alfred Imoh developer",
@@ -19,7 +19,6 @@ export const metadata = {
     "Node.js Developer",
     "FastAPI Developer",
     "PostgreSQL Developer",
-    "Docker",
     "JavaScript Developer",
     "Full Stack Software Engineer",
     "SaaS Developer",
@@ -41,7 +40,7 @@ export const metadata = {
   openGraph: {
     title: "Alfred Imoh: Full Stack Developer | React, Next.js & Node.js",
     description:
-      "Full-stack software engineer building modern web apps with React, Node.js, FastAPI, PostgreSQL, and Docker. Shipped products across SaaS, eCommerce, and lead generation.",
+      "Full-stack software engineer building modern web apps with React, Node.js, FastAPI, and PostgreSQL. Shipped products across SaaS, eCommerce, and lead generation.",
     url: "https://imoh-portfolio.vercel.app",
     siteName: "Alfred Imoh",
     images: [
@@ -64,7 +63,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Alfred Imoh: Full Stack Developer | React & Node.js",
     description:
-      "Full-stack software engineer building modern web apps with React, Node.js, FastAPI, PostgreSQL, and Docker. Clean code. Real-world impact.",
+      "Full-stack software engineer building modern web apps with React, Node.js, FastAPI, and PostgreSQL. Clean code. Real-world impact.",
     siteId: "",
     creator: "@Alfred_Imoh",
     creatorId: "@Alfred_Imoh",

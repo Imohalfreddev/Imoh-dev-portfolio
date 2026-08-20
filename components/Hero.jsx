@@ -3,11 +3,12 @@ import Image from "next/image";
 import { RiLinkedinFill } from "react-icons/ri";
 import { PiGithubLogoFill } from "react-icons/pi";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaWhatsapp, FaBell } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { IoDocumentText } from "react-icons/io5";
 import Link from "next/link";
 import HeroParallax from "./HeroParallax";
+import TypewriterHero from "./TypewriterHero";
 
 const Hero = () => {
   const handleDownloadResume = () => {
@@ -22,15 +23,9 @@ const Hero = () => {
     <main className="min-h-[calc(100svh-5.03rem)] md:flex-row flex flex-col-reverse justify-center items-center gap-4">
       {/* Left Section */}
       <section className=" max-w-3xl min-h-xl p-4 flex flex-col gap-3 m-4">
-        <p className="lg:text-3xl text-2xl font-medium">👋 Hi, I am</p>
-        <h1 className="lg:text-5xl text-4xl font-bold text-blue-700">
-          Alfred Imoh
-        </h1>
-        <h2 className="lg:text-4xl text-3xl font-medium">
-          I am a Full Stack Developer
-        </h2>
+        <TypewriterHero />
         <p className="lg:text-2xl text-lg text-gray-600">
-          I&apos;m a full-stack software engineer who builds modern, end-to-end web applications with a focus on clean code and real-world impact. I work across the full stack, React, Node.js, FastAPI, PostgreSQL, and Docker.
+          I&apos;m a full-stack software engineer who builds modern, end-to-end web applications with a focus on clean code and real-world impact. I work across the full stack, React, Node.js, FastAPI, and PostgreSQL.
         </p>
 
         <p className="lg:text-2xl text-lg text-gray-600">
@@ -90,7 +85,7 @@ const Hero = () => {
           <section className="flex gap-4">
             <Link href="mailto:imohalfred8@gmail.com">
               <button
-                className="flex items-center px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded-md text-white outline-none focus:ring-1 shadow-lg transform active:scale-y-90 transition-transform"
+                className="animate-tilt3d flex items-center px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded-md text-white outline-none focus:ring-1 shadow-lg transform active:scale-y-90 transition-transform"
                 aria-label="Contact Button"
               >
                 <IoIosMail size={24} />
@@ -99,7 +94,7 @@ const Hero = () => {
             </Link>
 
             <button
-              className="flex items-center px-3 py-2 bg-red-700 hover:bg-red-800 rounded-md text-white outline-none focus:ring-1 shadow-lg transform active:scale-y-90 transition-transform"
+              className="animate-tilt3d flex items-center px-3 py-2 bg-red-700 hover:bg-red-800 rounded-md text-white outline-none focus:ring-1 shadow-lg transform active:scale-y-90 transition-transform"
               onClick={handleDownloadResume}
               aria-label="Resume Download Button"
             >
@@ -143,8 +138,14 @@ const Hero = () => {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300"
+        className="animate-tilt3d fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300"
       >
+        <span className="absolute -top-2 left-1/2 -translate-x-1/2 flex h-5 w-5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+          <span className="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-red-500 border-2 border-white">
+            <FaBell size={9} className="text-white" />
+          </span>
+        </span>
         <FaWhatsapp size={30} />
       </a>
     </main>

@@ -42,7 +42,7 @@ export const project_data = [
         image: "url-shortener.png",
         description:
             "A Node.js/Express backend that scrapes 6 free job boards every 30 minutes and surfaces software engineer postings through a clean REST API. Sources include Remote OK, Remotive, Himalayas, We Work Remotely, Jobicy, and Hacker News, all free, no API key required. Features full-text search, tag and source filtering, pagination, admin scrape triggers, and a scheduler with cron-based polling.",
-        badges: ["React", "Node.js", "Express.js", "PostgreSQL", "Docker"],
+        badges: ["React", "Node.js", "Express.js", "PostgreSQL"],
         github: null,
         live: null,
         isPrivate: true, 

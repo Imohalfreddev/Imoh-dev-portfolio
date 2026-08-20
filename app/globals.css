@@ -55,3 +55,29 @@ html {
     width: 4px;
   }
 }
+
+@keyframes tilt3d {
+  0%, 100% {
+    transform: perspective(400px) rotateX(0deg) rotateY(0deg) scale(1);
+  }
+  25% {
+    transform: perspective(400px) rotateX(18deg) rotateY(-22deg) scale(1.06);
+  }
+  50% {
+    transform: perspective(400px) rotateX(0deg) rotateY(0deg) scale(1);
+  }
+  75% {
+    transform: perspective(400px) rotateX(-18deg) rotateY(22deg) scale(1.06);
+  }
+}
+
+.animate-tilt3d {
+  animation: tilt3d 2s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-tilt3d {
+    animation: none;
+  }
+}

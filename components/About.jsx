@@ -2,8 +2,9 @@
 import { FaInstagram, FaReact, FaFacebook, FaDocker, FaGitAlt } from "react-icons/fa";
 import { RiJavascriptFill, RiLinkedinFill, RiTailwindCssFill } from "react-icons/ri";
 import { FaNodeJs } from "react-icons/fa";
-import { SiExpress, SiFastapi, SiPostgresql, SiPython, SiNextdotjs, SiHtml5 } from "react-icons/si";
+import { SiExpress, SiFastapi, SiPostgresql, SiPython, SiNextdotjs, SiHtml5, SiShopify, SiWix, SiWordpress } from "react-icons/si";
 import { PiGithubLogoFill } from "react-icons/pi";
+import { TbSeo } from "react-icons/tb";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import Link from "next/link";
@@ -29,6 +30,13 @@ const backendSkills = [
   { icon: <SiPostgresql size={45} className="text-blue-700" />, label: "PostgreSQL" },
   { icon: <FaDocker size={45} className="text-blue-500" />, label: "Docker" },
   { icon: <FaGitAlt size={45} className="text-orange-600" />, label: "Git" },
+];
+
+const platformSkills = [
+  { icon: <SiWordpress size={45} className="text-blue-600" />, label: "WordPress" },
+  { icon: <SiShopify size={45} className="text-green-600" />, label: "Shopify" },
+  { icon: <SiWix size={45} className="text-black" />, label: "Wix" },
+  { icon: <TbSeo size={45} className="text-purple-600" />, label: "SEO & Sitemaps" },
 ];
 
 const About = React.memo(function About() {
@@ -64,6 +72,14 @@ const About = React.memo(function About() {
               </div>
             ))}
           </section>
+          <section className="p-2 flex gap-6 justify-center flex-wrap text-lg">
+            {platformSkills.map((skill, idx) => (
+              <div key={skill.label} className="flex justify-center items-center flex-col">
+                {skill.icon}
+                {skill.label}
+              </div>
+            ))}
+          </section>
         </section>
         </ScrollReveal>
 
@@ -74,7 +90,7 @@ const About = React.memo(function About() {
             <p className="font-bold text-xl lg:text-2xl border-l-4 border-blue-600 pl-3">More about Me</p>
           </section>
           <p className="lg:text-xl text-lg text-gray-700 font-normal">
-            Self-taught full-stack engineer with 2+ years shipping SaaS, eCommerce, and lead-gen products end to end, React, Node.js, FastAPI, PostgreSQL, and Docker, deployed on Vercel and Render. Fast learner, open to new opportunities.
+            Full-stack software engineer with 3+ years of experience shipping SaaS platforms, eCommerce sites, and lead-generation products end to end. Proficient in React, Node.js, FastAPI, and PostgreSQL, with production deployments on Vercel, Render, and self-managed infrastructure. Also builds and customizes WordPress, Shopify, and Wix sites for clients who need a fast, no-code-friendly launch.
           </p>
           <section className="flex max-md:flex-col gap-6 md:items-center">
             {/* Social Media Icons */}

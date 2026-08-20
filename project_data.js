@@ -1,5 +1,14 @@
 export const project_data = [
     {
+        title: "Tu Bloom Designs: Luxury Floral & Landscape Studio Website",
+        image: "tu-bloom-designs.png",
+        description:
+            "A client website for Tu Bloom Designs, the Official Botanical Artist of the GRAMMY® Awards, built to showcase luxury garden, floral, and interior plantscape design services. Includes a media-featured hero, service breakdowns, a filterable portfolio, client testimonials, and a booking/estimate request flow, delivered on WordPress with Elementor for fast content updates on the client's end.",
+        badges: ["WordPress", "Elementor", "Responsive Design", "Client Site"],
+        github: null,
+        live: "https://www.tubloom.com",
+    },
+    {
         title: "Scooproomhq: Premium News Aggregation Platform",
         image: "scoop-room.png",
         description:

@@ -102,7 +102,13 @@ const About = React.memo(function About() {
             <TypewriterOnScroll text="Profile" as="p" className="font-bold text-xl lg:text-2xl border-l-4 border-blue-600 pl-3" />
           </section>
           <p className="lg:text-xl text-lg text-gray-700 font-normal">
-            Full-stack software engineer with 3+ years of experience shipping SaaS platforms, eCommerce sites, and lead-generation products end to end. Proficient in React, Node.js, FastAPI, and PostgreSQL, with production deployments on Vercel, Render, and self-managed infrastructure. Also builds and customizes WordPress, Shopify, and Wix sites for clients who need a fast, no-code-friendly launch.
+            Full-stack software engineer with 3+ years of experience building and shipping web products from concept to production. I&apos;ve worked across SaaS platforms, eCommerce websites, lead-generation products, and custom business applications.
+          </p>
+          <p className="lg:text-xl text-lg text-gray-700 font-normal">
+            I work across the frontend and backend using React, Next.js, Node.js, FastAPI, Python, and PostgreSQL. My experience includes building responsive interfaces, APIs, database systems, authentication, third-party integrations, and production-ready applications.
+          </p>
+          <p className="lg:text-xl text-lg text-gray-700 font-normal">
+            I&apos;m comfortable taking applications through deployment and ongoing maintenance across cloud platforms, Linux servers, VPS infrastructure, and CI/CD environments. I also build and customize WordPress, Shopify, and Wix websites for businesses that need a polished, reliable, and efficient online presence.
           </p>
           <section className="flex max-md:flex-col gap-6 md:items-center">
             {/* Social Media Icons */}

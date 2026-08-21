@@ -19,24 +19,37 @@ const Hero = () => {
     try {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       const ctx = new AudioCtx();
-      const now = ctx.currentTime;
 
-      const playTone = (freq, start, duration) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = "sine";
-        osc.frequency.value = freq;
-        gain.gain.setValueAtTime(0, now + start);
-        gain.gain.linearRampToValueAtTime(0.15, now + start + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + start + duration);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now + start);
-        osc.stop(now + start + duration);
+      const start = () => {
+        const now = ctx.currentTime;
+
+        const playTone = (freq, offset, duration) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = "sine";
+          osc.frequency.value = freq;
+          gain.gain.setValueAtTime(0, now + offset);
+          gain.gain.linearRampToValueAtTime(0.15, now + offset + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + offset + duration);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + offset);
+          osc.stop(now + offset + duration);
+        };
+
+        playTone(880, 0, 0.15);
+        playTone(1244, 0.12, 0.2);
+
+        // Free the AudioContext once the tones finish so the next
+        // page load (or replay) doesn't run into a suspended/stuck context.
+        setTimeout(() => ctx.close(), 500);
       };
 
-      playTone(880, 0, 0.15);
-      playTone(1244, 0.12, 0.2);
+      if (ctx.state === "suspended") {
+        ctx.resume().then(start);
+      } else {
+        start();
+      }
     } catch (err) {
       // Audio not supported/blocked — badge still shows silently.
     }
@@ -76,12 +89,17 @@ const Hero = () => {
       {/* Left Section */}
       <section className=" max-w-3xl min-h-xl p-4 flex flex-col gap-3 m-4">
         <TypewriterHero />
+
         <p className="lg:text-2xl text-lg text-gray-600">
-          I&apos;m a full-stack software engineer who builds modern, end-to-end web applications with a focus on clean code and real-world impact. I work across the full stack, React, Node.js, FastAPI, and PostgreSQL.
+          I enjoy turning ideas into products that are useful, intuitive, and built to last. What I like most about software development is taking a problem, understanding what needs to be solved, and turning that into something people can actually use.
         </p>
 
         <p className="lg:text-2xl text-lg text-gray-600">
-          I use Tailwind CSS to create responsive, polished interfaces and have shipped products across SaaS, eCommerce, and lead generation. I&apos;m a fast learner who adapts quickly to any stack a project requires. Currently open to new opportunities.
+          I approach every project with attention to both the technical details and the overall experience. I believe good software should be reliable behind the scenes while remaining simple, clear, and enjoyable for the people using it.
+        </p>
+
+        <p className="lg:text-2xl text-lg text-gray-600">
+          I&apos;m driven by curiosity, quality, and the opportunity to work on projects that have a clear purpose and real-world value.
         </p>
 
         <section className="flex flex-col gap-6">

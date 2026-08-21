@@ -1,9 +1,10 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { RiLinkedinFill } from "react-icons/ri";
 import { PiGithubLogoFill } from "react-icons/pi";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram, FaFacebook, FaWhatsapp, FaBell } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { IoDocumentText } from "react-icons/io5";
 import Link from "next/link";
@@ -11,6 +12,57 @@ import HeroParallax from "./HeroParallax";
 import TypewriterHero from "./TypewriterHero";
 
 const Hero = () => {
+  const [showWhatsAppBadge, setShowWhatsAppBadge] = useState(false);
+  const triggeredRef = useRef(false);
+
+  const playNotificationSound = () => {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      const ctx = new AudioCtx();
+      const now = ctx.currentTime;
+
+      const playTone = (freq, start, duration) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0, now + start);
+        gain.gain.linearRampToValueAtTime(0.15, now + start + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + start + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + start);
+        osc.stop(now + start + duration);
+      };
+
+      playTone(880, 0, 0.15);
+      playTone(1244, 0.12, 0.2);
+    } catch (err) {
+      // Audio not supported/blocked — badge still shows silently.
+    }
+  };
+
+  useEffect(() => {
+    const triggerBadge = () => {
+      if (triggeredRef.current) return;
+      triggeredRef.current = true;
+
+      const delay = setTimeout(() => {
+        setShowWhatsAppBadge(true);
+        playNotificationSound();
+      }, 2500);
+
+      return () => clearTimeout(delay);
+    };
+
+    const events = ["click", "touchstart", "scroll", "keydown"];
+    events.forEach((evt) => window.addEventListener(evt, triggerBadge, { once: true }));
+
+    return () => {
+      events.forEach((evt) => window.removeEventListener(evt, triggerBadge));
+    };
+  }, []);
+
   const handleDownloadResume = () => {
     const link = document.createElement("a");
     link.href = "/resume/Alfred_Imoh_Resume.pdf";
@@ -140,12 +192,14 @@ const Hero = () => {
         aria-label="Chat on WhatsApp"
         className="animate-tilt3d fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-all duration-300"
       >
-        <span className="absolute -top-2 left-1/2 -translate-x-1/2 flex h-5 w-5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-          <span className="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-red-500 border-2 border-white">
-            <FaBell size={9} className="text-white" />
+        {showWhatsAppBadge && (
+          <span className="absolute -top-1 -right-1 flex h-6 w-6">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span className="relative inline-flex items-center justify-center rounded-full h-6 w-6 bg-red-500 border-2 border-white text-white text-xs font-bold">
+              1
+            </span>
           </span>
-        </span>
+        )}
         <FaWhatsapp size={30} />
       </a>
     </main>

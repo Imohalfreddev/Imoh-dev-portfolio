@@ -42,7 +42,7 @@ const platformSkills = [
 const About = React.memo(function About() {
   return (
     <main
-      className="min-h-[calc(100svh-5.03rem)] lg:p-6 p-1 justify-between items-center"
+      className="lg:min-h-[calc(100svh-5.03rem)] lg:p-6 p-1 justify-between items-center"
       id="about"
     >
       <section className="flex items-center gap-4 pt-3">

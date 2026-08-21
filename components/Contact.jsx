@@ -55,7 +55,7 @@ const Contact = () => {
 
   return (
     <main
-      className="min-h-[calc(100svh-5.03rem)] lg:p-6 p-1 flex flex-col lg:gap-8 gap-4"
+      className="lg:min-h-[calc(100svh-5.03rem)] lg:p-6 p-1 flex flex-col lg:gap-8 gap-4"
       id="contact"
     >
       <Toaster />

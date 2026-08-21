@@ -19,8 +19,8 @@ const HeroParallax = ({ children }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
   return (
-    <div ref={ref} style={{ perspective: 1400 }}>
-      <motion.div style={{ rotateX, y, scale, transformStyle: "preserve-3d" }}>
+    <div ref={ref} className="w-full h-full" style={{ perspective: 1400 }}>
+      <motion.div className="w-full h-full" style={{ rotateX, y, scale, transformStyle: "preserve-3d" }}>
         {children}
       </motion.div>
     </div>

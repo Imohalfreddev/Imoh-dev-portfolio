@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { RiLinkedinFill } from "react-icons/ri";
 import { PiGithubLogoFill } from "react-icons/pi";
 import { FaXTwitter } from "react-icons/fa6";
@@ -85,122 +84,112 @@ const Hero = () => {
     document.body.removeChild(link);
   };
   return (
-    <main className="min-h-[calc(100svh-5.03rem)] md:flex-row flex flex-col-reverse justify-center items-center gap-4">
-      {/* Left Section */}
-      <section className=" max-w-3xl min-h-xl p-4 flex flex-col gap-3 m-4">
-        <TypewriterHero />
+    <main className="lg:min-h-[calc(100svh-5.03rem)] flex flex-col gap-4 p-4">
+      <TypewriterHero />
 
-        <p className="lg:text-2xl text-lg text-gray-600">
-          I enjoy turning ideas into products that are useful, intuitive, and built to last. What I like most about software development is taking a problem, understanding what needs to be solved, and turning that into something people can actually use.
-        </p>
+      {/* Card + Video row: stretched to equal height */}
+      <section className="flex md:flex-row flex-col-reverse gap-4 items-stretch">
+        {/* Bio Card */}
+        <section className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl shadow-md p-5 flex flex-col gap-4 justify-center max-w-3xl w-full">
+          <p className="lg:text-xl text-base text-gray-600">
+            I enjoy turning ideas into products that are useful, intuitive, and built to last. What I like most about software development is taking a problem, understanding what needs to be solved, and turning that into something people can actually use.
+          </p>
 
-        <p className="lg:text-2xl text-lg text-gray-600">
-          I approach every project with attention to both the technical details and the overall experience. I believe good software should be reliable behind the scenes while remaining simple, clear, and enjoyable for the people using it.
-        </p>
+          <p className="lg:text-xl text-base text-gray-600">
+            I approach every project with attention to both the technical details and the overall experience. I believe good software should be reliable behind the scenes while remaining simple, clear, and enjoyable for the people using it.
+          </p>
 
-        <p className="lg:text-2xl text-lg text-gray-600">
-          I&apos;m driven by curiosity, quality, and the opportunity to work on projects that have a clear purpose and real-world value.
-        </p>
+          <p className="lg:text-xl text-base text-gray-600">
+            I&apos;m driven by curiosity, quality, and the opportunity to work on projects that have a clear purpose and real-world value.
+          </p>
+        </section>
 
-        <section className="flex flex-col gap-6">
-          {/* Social Media Icons */}
-          <section className="flex items-center gap-4 mt-3">
-            {/* Linkedin */}
-            <a
-              href="https://www.linkedin.com/in/imoh-alfred-99a4a8258"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Goto my linkedin profile"
-            >
-              <RiLinkedinFill className="bg-white transform hover:-translate-y-1.5 w-12 h-12 rounded-xl duration-500 text-blue-500 hover:bg-blue-500 p-1.5 hover:text-white" />
-            </a>
-            {/* Github */}
-            <a
-              href="https://github.com/Imohalfreddev"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Goto my github profile"
-            >
-              <PiGithubLogoFill className="bg-white transform hover:-translate-y-1.5 w-12 h-12 rounded-xl duration-500 text-black  hover:bg-black p-1.5 hover:text-white" />
-            </a>
-            {/* X */}
-            <a
-              href="https://x.com/Alfred_Imoh"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Goto my x profile"
-            >
-              <FaXTwitter className="bg-white transform hover:-translate-y-1.5 w-12 h-12 rounded-xl duration-500 text-black hover:bg-black p-1.5 hover:text-white" />
-            </a>
-            {/* Instagram */}
-            <a
-              href="https://www.instagram.com/imoh_automation?igsh=NzhhcWpranc1amY2"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Goto my instagram profile"
-            >
-              <FaInstagram className="bg-white transform hover:-translate-y-1.5 w-12 h-12 rounded-xl duration-500 text-pink-500 hover:bg-pink-500 p-1.5 hover:text-white" />
-            </a>
-            {/* Facebook */}
-            <a
-              href="https://www.facebook.com/profile.php?id=61589650123060"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Goto my facebook profile"
-            >
-              <FaFacebook className="bg-white transform hover:-translate-y-1.5 w-12 h-12 rounded-xl duration-500 text-blue-600 hover:bg-blue-600 p-1.5 hover:text-white" />
-            </a>
-          </section>
-          {/* Buttons */}
-          <section className="flex gap-4">
-            <Link href="mailto:imohalfred8@gmail.com">
-              <button
-                className="animate-tilt3d flex items-center px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded-md text-white outline-none focus:ring-1 shadow-lg transform active:scale-y-90 transition-transform"
-                aria-label="Contact Button"
-              >
-                <IoIosMail size={24} />
-                <span className="ml-1.5 md:text-lg">Contact</span>
-              </button>
-            </Link>
-
-            <button
-              className="animate-tilt3d flex items-center px-3 py-2 bg-red-700 hover:bg-red-800 rounded-md text-white outline-none focus:ring-1 shadow-lg transform active:scale-y-90 transition-transform"
-              onClick={handleDownloadResume}
-              aria-label="Resume Download Button"
-            >
-              <IoDocumentText size={22} />
-              <span className="ml-1.5 md:text-lg">Resume</span>
-            </button>
-          </section>
+        {/* Hero video, stretched to match the card's height exactly, no crop */}
+        <section className="lg:max-w-2xl max-w-sm w-full mx-auto md:mx-0 flex">
+          <HeroParallax>
+            <video
+              className="w-full h-full object-contain rounded-xl shadow-lg"
+              src="/hero/intro.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-label="Alfred Imoh intro video"
+            />
+          </HeroParallax>
         </section>
       </section>
 
-      {/* Right Section: hero illustration, visible at all breakpoints */}
-      <section className="lg:max-w-lg max-w-xs w-full p-4 mx-auto lg:mx-0">
-        <HeroParallax>
-          {/* Desktop */}
-          <Image
-            className="max-w-xl rounded-xl max-lg:hidden"
-            src="/hero/bg.svg"
-            alt="Alfred Imoh"
-            height={300}
-            width={350}
-            priority
-            style={{
-              width: "350px",
-              height: "auto",
-            }}
-          />
-          {/* Mobile / Tablet */}
-          <Image
-            className="w-full h-auto rounded-xl lg:hidden"
-            src="/hero/bg.png"
-            alt="Alfred Imoh coding at desk"
-            height={300}
-            width={300}
-            priority
-          />
-        </HeroParallax>
+      {/* Socials + Buttons */}
+      <section className="flex flex-wrap items-center gap-4 max-w-3xl mt-3">
+        {/* Linkedin */}
+        <a
+          href="https://www.linkedin.com/in/imoh-alfred-99a4a8258"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Goto my linkedin profile"
+        >
+          <RiLinkedinFill className="bg-white transform hover:-translate-y-1.5 w-12 h-12 rounded-xl duration-500 text-blue-500 hover:bg-blue-500 p-1.5 hover:text-white" />
+        </a>
+        {/* Github */}
+        <a
+          href="https://github.com/Imohalfreddev"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Goto my github profile"
+        >
+          <PiGithubLogoFill className="bg-white transform hover:-translate-y-1.5 w-12 h-12 rounded-xl duration-500 text-black  hover:bg-black p-1.5 hover:text-white" />
+        </a>
+        {/* X */}
+        <a
+          href="https://x.com/Alfred_Imoh"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Goto my x profile"
+        >
+          <FaXTwitter className="bg-white transform hover:-translate-y-1.5 w-12 h-12 rounded-xl duration-500 text-black hover:bg-black p-1.5 hover:text-white" />
+        </a>
+        {/* Instagram */}
+        <a
+          href="https://www.instagram.com/imoh_automation?igsh=NzhhcWpranc1amY2"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Goto my instagram profile"
+        >
+          <FaInstagram className="bg-white transform hover:-translate-y-1.5 w-12 h-12 rounded-xl duration-500 text-pink-500 hover:bg-pink-500 p-1.5 hover:text-white" />
+        </a>
+        {/* Facebook */}
+        <a
+          href="https://www.facebook.com/profile.php?id=61589650123060"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Goto my facebook profile"
+        >
+          <FaFacebook className="bg-white transform hover:-translate-y-1.5 w-12 h-12 rounded-xl duration-500 text-blue-600 hover:bg-blue-600 p-1.5 hover:text-white" />
+        </a>
+
+        {/* Divider before action buttons, hidden on very narrow screens */}
+        <span className="hidden sm:block w-px h-8 bg-gray-300 mx-1" />
+
+        {/* Buttons */}
+        <Link href="mailto:imohalfred8@gmail.com">
+          <button
+            className="animate-tilt3d flex items-center px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded-md text-white outline-none focus:ring-1 shadow-lg transform active:scale-y-90 transition-transform"
+            aria-label="Contact Button"
+          >
+            <IoIosMail size={24} />
+            <span className="ml-1.5 md:text-lg">Contact</span>
+          </button>
+        </Link>
+
+        <button
+          className="animate-tilt3d flex items-center px-3 py-2 bg-red-700 hover:bg-red-800 rounded-md text-white outline-none focus:ring-1 shadow-lg transform active:scale-y-90 transition-transform"
+          onClick={handleDownloadResume}
+          aria-label="Resume Download Button"
+        >
+          <IoDocumentText size={22} />
+          <span className="ml-1.5 md:text-lg">Resume</span>
+        </button>
       </section>
       {/* Floating WhatsApp Button */}
       <a

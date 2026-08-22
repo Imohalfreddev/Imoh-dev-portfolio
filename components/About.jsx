@@ -52,11 +52,13 @@ const About = React.memo(function About() {
       <section className="flex flex-col-reverse lg:flex-row lg:p-6 p-4 gap-6 mt-6 items-stretch">
         {/* left Section */}
         <ScrollReveal direction="left" className="w-full flex">
-        <section className="w-full h-full p-2 rounded-xl py-6 lg:py-0.5 shadow-md border border-gray-100 bg-white flex  flex-col justify-start max-md:gap-6 lg:p-4">
-          <section className="flex items-center gap-4 h-1/5 ">
+        <section className="w-full h-full p-3 flex flex-col justify-start gap-4 rounded-xl py-6 lg:p-6 card bg-white shadow-md border border-gray-100">
+          <section className="flex items-center gap-4">
             <TypewriterOnScroll text="My Skills" as="p" className="text-xl lg:text-2xl font-bold border-l-4 border-blue-600 pl-3" />
           </section>
-          <section className="p-2 flex flex-col gap-2">
+
+          {/* Card 1 - Frontend */}
+          <div className="bg-gray-50 rounded-lg border border-gray-100 shadow-sm p-2 flex-1 flex flex-col justify-center">
             <section className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 justify-items-center">
               {frontendSkills.map((skill, idx) => (
                 <div key={skill.label} className="group flex justify-center items-center flex-col">
@@ -67,8 +69,10 @@ const About = React.memo(function About() {
                 </div>
               ))}
             </section>
-          </section>
-          <section className="p-2 flex flex-col gap-2">
+          </div>
+
+          {/* Card 2 - Backend */}
+          <div className="bg-gray-50 rounded-lg border border-gray-100 shadow-sm p-2 flex-1 flex flex-col justify-center">
             <section className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 justify-items-center">
               {backendSkills.map((skill, idx) => (
                 <div key={skill.label} className="group flex justify-center items-center flex-col">
@@ -79,8 +83,10 @@ const About = React.memo(function About() {
                 </div>
               ))}
             </section>
-          </section>
-          <section className="p-2 flex flex-col gap-2">
+          </div>
+
+          {/* Card 3 - Platforms & Tools */}
+          <div className="bg-gray-50 rounded-lg border border-gray-100 shadow-sm p-2 flex-1 flex flex-col justify-center">
             <section className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 justify-items-center">
               {platformSkills.map((skill, idx) => (
                 <div key={skill.label} className="group flex justify-center items-center flex-col">
@@ -91,25 +97,36 @@ const About = React.memo(function About() {
                 </div>
               ))}
             </section>
-          </section>
+          </div>
         </section>
         </ScrollReveal>
 
         {/* Right Section */}
-        <ScrollReveal direction="right" className="w-full flex">
+        <ScrollReveal direction="right" delay={0.15} className="w-full flex">
         <section className="w-full h-full p-3 flex flex-col justify-start gap-4 text-xl rounded-xl py-6 lg:p-6 card bg-white shadow-md border border-gray-100">
           <section className="flex items-center gap-4 ">
             <TypewriterOnScroll text="Profile" as="p" className="font-bold text-xl lg:text-2xl border-l-4 border-blue-600 pl-3" />
           </section>
-          <p className="lg:text-xl text-lg text-gray-700 font-normal">
-            Full-stack software engineer with 3+ years of experience building and shipping web products from concept to production. I&apos;ve worked across SaaS platforms, eCommerce websites, lead-generation products, and custom business applications.
-          </p>
-          <p className="lg:text-xl text-lg text-gray-700 font-normal">
-            I work across the frontend and backend using React, Next.js, Node.js, FastAPI, Python, and PostgreSQL. My experience includes building responsive interfaces, APIs, database systems, authentication, third-party integrations, and production-ready applications.
-          </p>
-          <p className="lg:text-xl text-lg text-gray-700 font-normal">
-            I&apos;m comfortable taking applications through deployment and ongoing maintenance across cloud platforms, Linux servers, VPS infrastructure, and CI/CD environments. I also build and customize WordPress, Shopify, and Wix websites for businesses that need a polished, reliable, and efficient online presence.
-          </p>
+          {/* Card 1 */}
+          <div className="bg-gray-50 rounded-lg border border-gray-100 shadow-sm p-2">
+            <p className="lg:text-xl text-lg text-gray-700 font-normal">
+              Full-stack software engineer with 3+ years of experience building and shipping web products from concept to production. I&apos;ve worked across SaaS platforms, eCommerce websites, lead-generation products, and custom business applications.
+            </p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-gray-50 rounded-lg border border-gray-100 shadow-sm p-2">
+            <p className="lg:text-xl text-lg text-gray-700 font-normal">
+              I work across the frontend and backend using React, Next.js, Node.js, FastAPI, Python, and PostgreSQL. My experience includes building responsive interfaces, APIs, database systems, authentication, third-party integrations, and production-ready applications.
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-gray-50 rounded-lg border border-gray-100 shadow-sm p-2">
+            <p className="lg:text-xl text-lg text-gray-700 font-normal">
+              I&apos;m comfortable taking applications through deployment and ongoing maintenance across cloud platforms, Linux servers, VPS infrastructure, and CI/CD environments. I also build and customize WordPress, Shopify, and Wix websites for businesses that need a polished, reliable, and efficient online presence.
+            </p>
+          </div>
           <section className="flex max-md:flex-col gap-6 md:items-center">
             {/* Social Media Icons */}
             <section className="flex items-center gap-4 mt-3">

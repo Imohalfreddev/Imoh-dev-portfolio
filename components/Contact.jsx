@@ -81,7 +81,7 @@ const Contact = () => {
           />
         </section>
         </ScrollReveal>
-        <ScrollReveal direction="right" className="lg:w-2/4 md:w-3/4 sm:w-3/4 w-full max-sm:m-4 max-md:mt-8">
+        <ScrollReveal direction="right" delay={0.15} className="lg:w-2/4 md:w-3/4 sm:w-3/4 w-full max-sm:m-4 max-md:mt-8">
         <section className="w-full p-6 rounded-xl card flex flex-col justify-center items-center">
           <form className="w-full p-1 lg:p-6" onSubmit={handleSubmit}>
             <div className="mb-5">

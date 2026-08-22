@@ -14,7 +14,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="px-3 py-4 md:p-4 border-b border-gray-200 sticky top-0 bg-white z-50">
+    <nav className="pl-3 pr-2 py-4 md:p-4 border-b border-gray-200 sticky top-0 bg-white z-50">
       <div className="flex">
         {/* Left Section */}
         <section className="w-1/2 md:w-1/2 p-2 text-xl md:text-2xl font-semibold flex justify-start items-center uppercase">
@@ -35,10 +35,10 @@ const Navbar = () => {
         </section>
 
         {/* Right Section */}
-        <section className="w-1/2 md:w-1/4 max-lg:w-1/3 flex justify-end items-center gap-5">
+        <section className="w-1/2 md:w-1/4 flex justify-end items-center gap-5">
           <Link
             href="mailto:imohalfred8@gmail.com"
-            className="animate-tilt3d hidden min-[376px]:flex items-center whitespace-nowrap px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded-md text-white outline-none focus:ring-1 shadow-lg transform active:scale-y-95 transition-transform"
+            className="animate-tilt3d flex items-center whitespace-nowrap px-2.5 py-2 text-sm md:text-base md:px-3 bg-blue-700 hover:bg-blue-800 rounded-md text-white outline-none focus:ring-1 shadow-lg transform active:scale-y-95 transition-transform"
             aria-label="Hire Me Button"
           >
             <FaBriefcase />
@@ -47,7 +47,7 @@ const Navbar = () => {
 
           {/* Mobile menu toggle — 3D coin-flip between bars and X */}
           <button
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md text-gray-700 hover:bg-gray-100 -mr-1"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md text-gray-700 hover:bg-gray-100"
             style={{ perspective: "600px" }}
             onClick={() => setMenuOpen((open) => !open)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -85,9 +85,23 @@ const Navbar = () => {
           transformOrigin: "top",
         }}
       >
-        <ul className="flex flex-col gap-1 pt-4 text-gray-700 tracking-wider uppercase font-semibold">
-          {NAV_LINKS.map((link) => (
-            <li key={link.label}>
+        <ul
+          className="flex flex-col gap-1 pt-4 text-gray-700 tracking-wider uppercase font-semibold"
+          style={{ perspective: "800px" }}
+        >
+          {NAV_LINKS.map((link, idx) => (
+            <li
+              key={link.label}
+              className="transition-all duration-500 ease-out"
+              style={{
+                transformOrigin: "top center",
+                transform: menuOpen
+                  ? "rotateX(0deg) translateY(0px)"
+                  : "rotateX(-90deg) translateY(-8px)",
+                opacity: menuOpen ? 1 : 0,
+                transitionDelay: menuOpen ? `${idx * 80}ms` : "0ms",
+              }}
+            >
               <a
                 href={link.href}
                 aria-label={`Goto ${link.label} Section`}

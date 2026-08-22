@@ -89,33 +89,44 @@ const Hero = () => {
 
       {/* Card + Video row: stretched to equal height */}
       <section className="flex md:flex-row flex-col-reverse gap-4 items-stretch">
-        {/* Bio Card */}
+        {/* Bio Card (base) */}
         <section className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl shadow-md p-5 flex flex-col gap-4 justify-center max-w-3xl w-full">
-          <p className="lg:text-xl text-base text-gray-600">
-            I enjoy turning ideas into products that are useful, intuitive, and built to last. What I like most about software development is taking a problem, understanding what needs to be solved, and turning that into something people can actually use.
-          </p>
+          {/* Card 1 */}
+          <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-2">
+            <p className="lg:text-xl text-base text-gray-600">
+              I enjoy turning ideas into products that are useful, intuitive, and built to last. What I like most about software development is taking a problem, understanding what needs to be solved, and turning that into something people can actually use.
+            </p>
+          </div>
 
-          <p className="lg:text-xl text-base text-gray-600">
-            I approach every project with attention to both the technical details and the overall experience. I believe good software should be reliable behind the scenes while remaining simple, clear, and enjoyable for the people using it.
-          </p>
+          {/* Card 2 */}
+          <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-2">
+            <p className="lg:text-xl text-base text-gray-600">
+              I approach every project with attention to both the technical details and the overall experience. I believe good software should be reliable behind the scenes while remaining simple, clear, and enjoyable for the people using it.
+            </p>
+          </div>
 
-          <p className="lg:text-xl text-base text-gray-600">
-            I&apos;m driven by curiosity, quality, and the opportunity to work on projects that have a clear purpose and real-world value.
-          </p>
+          {/* Card 3 */}
+          <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-2">
+            <p className="lg:text-xl text-base text-gray-600">
+              I&apos;m driven by curiosity, quality, and the opportunity to work on projects that have a clear purpose and real-world value.
+            </p>
+          </div>
         </section>
 
         {/* Hero video, stretched to match the card's height exactly, no crop */}
-        <section className="lg:max-w-2xl max-w-sm w-full mx-auto md:mx-0 flex">
+        <section className="lg:max-w-2xl max-w-md w-full mx-auto md:mx-0 flex">
           <HeroParallax>
-            <video
-              className="w-full h-full object-contain rounded-xl shadow-lg"
-              src="/hero/intro.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              aria-label="Alfred Imoh intro video"
-            />
+            <div className="w-full aspect-[5/4] md:aspect-auto md:h-full rounded-xl shadow-lg bg-black overflow-hidden flex items-center justify-center">
+              <video
+                className="w-full h-full object-fill"
+                src="/hero/intro.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Alfred Imoh intro video"
+              />
+            </div>
           </HeroParallax>
         </section>
       </section>

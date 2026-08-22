@@ -2,6 +2,7 @@ export const project_data = [
     {
         title: "Tu Bloom Designs: Luxury Floral & Landscape Studio Website",
         image: "tu-bloom-designs.png",
+        orientation: "portrait",
         description:
             "A client website for Tu Bloom Designs, the Official Botanical Artist of the GRAMMY® Awards, built to showcase luxury garden, floral, and interior plantscape design services. Includes a media-featured hero, service breakdowns, a filterable portfolio, client testimonials, and a booking/estimate request flow, delivered on WordPress with Elementor for fast content updates on the client's end.",
         badges: ["WordPress", "Elementor", "Responsive Design", "Client Site"],
@@ -20,6 +21,7 @@ export const project_data = [
     {
         title: "Scooproomhq Admin: Newsroom CMS",
         image: "scoop-room-admin.png",
+        orientation: "portrait",
         description:
             "The private, authenticated control room behind Scooproomhq, a fully separate codebase and deployment with the only write access to the shared database. Handles article creation/editing, categories, media, homepage/hero ordering, notifications, and SEO, protected end to end by session middleware. Kept off the public site and off any public repo by design.",
         badges: ["Next.js", "Prisma", "PostgreSQL", "JWT Auth", "Admin CMS"],
@@ -30,6 +32,7 @@ export const project_data = [
     {
         title: "Scooproomhq Bot: Breaking News Intelligence Engine",
         image: "scoop-room-bot.png",
+        orientation: "portrait",
         description:
             "A newsroom-intelligence backend that scans trusted Nigerian, African, and global RSS sources around the clock, clusters duplicate coverage of the same story, scores it for confidence, and alerts a Telegram channel only once it's genuinely worth posting, turning six outlets covering one event into a single, ranked alert instead of six pings.",
         badges: ["Node.js", "TypeScript", "Prisma", "PostgreSQL", "Telegram Bot API"],
@@ -42,7 +45,7 @@ export const project_data = [
         image: "url-shortener.png",
         description:
             "A Node.js/Express backend that scrapes 6 free job boards every 30 minutes and surfaces software engineer postings through a clean REST API. Sources include Remote OK, Remotive, Himalayas, We Work Remotely, Jobicy, and Hacker News, all free, no API key required. Features full-text search, tag and source filtering, pagination, admin scrape triggers, and a scheduler with cron-based polling.",
-        badges: ["React", "Node.js", "Express.js", "PostgreSQL"],
+        badges: ["Node.js", "Express.js", "PostgreSQL"],
         github: null,
         live: null,
         isPrivate: true, 

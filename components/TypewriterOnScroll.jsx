@@ -10,7 +10,7 @@ const TypewriterOnScroll = ({
   text,
   as: Tag = "p",
   className = "",
-  speed = 35,
+  speed = 30,
   cursorClassName = "bg-blue-700",
   threshold = 0.4,
 }) => {
@@ -47,21 +47,19 @@ const TypewriterOnScroll = ({
       return () => clearTimeout(timeout);
     }
 
-    const timeout = setTimeout(() => setDone(true), 900);
+    const timeout = setTimeout(() => setDone(true), 700);
     return () => clearTimeout(timeout);
   }, [started, charIndex, text, speed, done]);
 
   const displayed = started ? text.slice(0, charIndex) : "";
-  const showCursor = started && !done;
+  const cursorVisible = started && !done;
 
   return (
     <Tag ref={ref} className={className}>
       {displayed}
-      {showCursor && (
-        <span
-          className={`inline-block w-0.5 h-[0.9em] ml-0.5 align-middle animate-pulse ${cursorClassName}`}
-        />
-      )}
+      <span
+        className={`inline-block w-0.5 h-[0.9em] ml-0.5 align-middle animate-pulse transition-opacity duration-300 ${cursorVisible ? "opacity-100" : "opacity-0"} ${cursorClassName}`}
+      />
       {/* Reserve layout space so nothing shifts before typing starts */}
       {!started && <span className="invisible">{text}</span>}
     </Tag>

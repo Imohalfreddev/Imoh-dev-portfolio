@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const LINES = [
   { text: "👋 Hi, I am", tag: "p", className: "lg:text-3xl text-2xl font-medium" },
@@ -7,9 +8,9 @@ const LINES = [
   { text: "I am a Full Stack Developer", tag: "h2", className: "lg:text-4xl text-3xl font-medium" },
 ];
 
-const TYPE_SPEED_MS = 45;
-const LINE_PAUSE_MS = 250;
-const CURSOR_HOLD_MS = 1600;
+const TYPE_SPEED_MS = 38;
+const LINE_PAUSE_MS = 180;
+const CURSOR_HOLD_MS = 1300;
 
 const TypewriterHero = () => {
   const [lineIndex, setLineIndex] = useState(0);
@@ -39,7 +40,11 @@ const TypewriterHero = () => {
   }, [charIndex, lineIndex, done]);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
       {LINES.map((line, idx) => {
         const isPastLine = idx < lineIndex || done;
         const isCurrentLine = idx === lineIndex && !done;
@@ -56,7 +61,7 @@ const TypewriterHero = () => {
           </Tag>
         );
       })}
-    </>
+    </motion.div>
   );
 };
 

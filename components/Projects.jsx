@@ -22,21 +22,27 @@ const Projects = () => {
           <ScrollReveal
             key={index}
             direction={index % 2 === 0 ? "left" : "right"}
-            className="w-full flex justify-center"
+            delay={0.08}
           >
           <section
-            className="card shadow-lg rounded-xl flex lg:flex-row flex-col gap-4 md:p-4 md:m-4 p-2 m-2 w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-none lg:w-5/6 xl:w-5/6"
+            className="card shadow-lg rounded-xl flex lg:flex-row flex-col gap-4 md:p-4 md:m-4 p-2 m-2 mx-auto max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-4xl w-full"
           >
             {/* Image Section */}
-            <section className="p-1 lg:w-1/2 shrink-0 flex items-center">
-              <div className="relative w-full aspect-[16/10] rounded-lg shadow-lg overflow-hidden bg-gray-100">
+            <section className="p-1 lg:w-1/2 shrink-0 flex items-center justify-center">
+              <div
+                className={
+                  e.orientation === "portrait"
+                    ? "relative mx-auto w-[65%] sm:w-[55%] md:w-[50%] lg:w-[70%] aspect-[9/16] max-h-[70vh] rounded-lg shadow-lg overflow-hidden bg-gray-100"
+                    : "relative w-full aspect-[16/10] rounded-lg shadow-lg overflow-hidden bg-gray-100"
+                }
+              >
                 <Image
                   className="object-contain"
                   src={`/projects/${e.image}`}
                   alt={`${e.title} by Alfred Imoh`}
                   priority={false}
                   fill
-                  sizes="(min-width: 1024px) 40vw, (min-width: 768px) 60vw, 90vw"
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 60vw"
                 />
               </div>
             </section>
@@ -61,9 +67,11 @@ const Projects = () => {
                 ))}
               </section>
               {/* Project Description */}
-              <p className="lg:text-lg text-gray-700 lg:p-2 line-clamp-3 flex-1">
-                {e.description}
-              </p>
+              <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-4">
+                <p className="lg:text-lg text-gray-700 line-clamp-3 flex-1">
+                  {e.description}
+                </p>
+              </div>
               {/* Project Buttons */}
               <section className="lg:p-2 flex justify-end gap-4 max-lg:p-3 mt-auto">
                 {/* Github - only show if link exists */}
